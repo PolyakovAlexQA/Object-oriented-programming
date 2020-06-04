@@ -1,12 +1,16 @@
 public class Conditioner {
-    private String name = "кондишн";
+
+    private boolean on;
     private int maxTemperature = 24;
     private int minTemperature = 17;
-    private int currentTemperature = 20;
-    private boolean on;
+    private int currentTemperature;
 
-    public String getName() {
-        return name;
+    public boolean isOn() {
+        return on;
+    }
+
+    public void setOn(boolean on) {
+        this.on =  on;
     }
 
     public int getMaxTemperature() {
@@ -17,31 +21,35 @@ public class Conditioner {
         return minTemperature;
     }
 
-
-    public int setCurrentTemperature(int currentTemperature) {
+    public void setCurrentTemperature(int currentTemperature) {
+        if (currentTemperature > maxTemperature) {
+            this.currentTemperature = maxTemperature;
+            return;
+        }
+        if (currentTemperature < minTemperature) {
+            this.currentTemperature = minTemperature;
+            return;
+        }
         this.currentTemperature = currentTemperature;
+    }
+
+    public int getCurrentTemperature() {
         return currentTemperature;
     }
 
-    public void setOn(boolean on) {
-        this.on = on;
-    }
 
-
-    public void increaseCurrentTemperature() {
-        if (currentTemperature == maxTemperature) {
+    public void increaseCurrentTemperature(){
+        if (!isOn()) return;
+        if (currentTemperature >= maxTemperature)
             return;
-        }
         currentTemperature++;
-
     }
 
-    public void decreaseCurrentTemperature() {
-        if (currentTemperature == maxTemperature) {
+    public void decreaseCurrentTemperature(){
+        if (!isOn()) return;
+        if (currentTemperature <= minTemperature) {
             return;
         }
         currentTemperature--;
-
     }
 }
-
