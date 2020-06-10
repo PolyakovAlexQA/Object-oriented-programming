@@ -10,7 +10,7 @@ public class Conditioner {
     }
 
     public void setOn(boolean on) {
-        this.on =  on;
+        this.on = on;
     }
 
     public int getMaxTemperature() {
@@ -37,15 +37,14 @@ public class Conditioner {
         return currentTemperature;
     }
 
-
-    public void increaseCurrentTemperature(){
+    public void increaseCurrentTemperature() {
         if (!isOn()) return;
         if (currentTemperature >= maxTemperature)
             return;
         currentTemperature++;
     }
 
-    public void decreaseCurrentTemperature(){
+    public void decreaseCurrentTemperature() {
         if (!isOn()) return;
         if (currentTemperature <= minTemperature) {
             return;

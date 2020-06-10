@@ -70,8 +70,6 @@ class ConditionerTest {
         assertEquals(false, conditioner.isOn());
     }
 
-
-
     @Test
     void decreaseCurrentTemperatureConditionerIsOFF() {
         Conditioner conditioner = new Conditioner();
