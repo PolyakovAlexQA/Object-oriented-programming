@@ -1,18 +1,19 @@
 public class Conditioner {
-
+     // присваеваем значение
     private boolean on;
     private int maxTemperature = 24;
     private int minTemperature = 17;
     private int currentTemperature;
 
+    // создаем геттер метод
     public boolean isOn() {
         return on;
     }
-
+    // создаем сеттер метод
     public void setOn(boolean on) {
         this.on = on;
     }
-
+    // создали геттеры для мин и макс температуры
     public int getMaxTemperature() {
         return maxTemperature;
     }
@@ -21,9 +22,10 @@ public class Conditioner {
         return minTemperature;
     }
 
+     // создали сеттер для текущей температуры
     public void setCurrentTemperature(int currentTemperature) {
         if (currentTemperature > maxTemperature) {
-            this.currentTemperature = maxTemperature;
+            this.currentTemperature = maxTemperature;//создали условия при котором макс температура не выходит за границы присвоемого значение
             return;
         }
         if (currentTemperature < minTemperature) {
@@ -32,18 +34,19 @@ public class Conditioner {
         }
         this.currentTemperature = currentTemperature;
     }
-
+    // создали геттер для тек температуры
     public int getCurrentTemperature() {
         return currentTemperature;
     }
-
+    //создали метод при котором температура увеличивалась на 1 градус
     public void increaseCurrentTemperature() {
-        if (!isOn()) return;
+        if (!isOn()) return; // присвоили отрицательное значение  ! (false)
         if (currentTemperature >= maxTemperature)
             return;
         currentTemperature++;
     }
 
+    //создали метод при котором температура уменьшалось на 1 градус
     public void decreaseCurrentTemperature() {
         if (!isOn()) return;
         if (currentTemperature <= minTemperature) {
